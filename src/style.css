@@ -1,0 +1,357 @@
+@font-face {
+  font-family: "default";
+  src: url("./manrope.woff2");
+}
+
+:root {
+  font-family: "default", Inter, Avenir, Helvetica, Arial, sans-serif;
+  --background: #3e96fc;
+  --foreground: #000;
+  --accent: #fff;
+  --dark: #21212144;
+  --border: 1px solid #00000036;
+  --footer-width: 14rem;
+}
+
+:focus-visible {
+  outline: 2px dashed var(--accent);
+  outline-offset: 2px;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+/* == Main == */
+
+main {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  & p {
+    user-select: none;
+    font-size: 1.1rem;
+    margin-top: 2.3rem;
+  }
+  & h1 {
+    font-weight: 800;
+    font-size: 2.4rem;
+    margin: 1.3rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+
+    & div:focus {
+      border-radius: 5px;
+      outline: 3px dashed #fff;
+    }
+  }
+  & h2 {
+    font-weight: 600;
+    margin: 0;
+    font-size: 1.3rem;
+  }
+  & h3 {
+    user-select: none;
+    margin: 0;
+    margin-top: 1rem;
+    font-size: 1rem;
+    font-weight: 400;
+    opacity: 0.5;
+  }
+  .note {
+    display: none;
+    background: #ffffff45;
+    border: 2px dashed #fff;
+    border-radius: 5px;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.8rem;
+    margin-top: 2rem;
+    width: calc(var(--footer-width) - 1.1rem);
+  }
+}
+
+/* == Universal Styles == */
+
+input {
+  outline: none !important;
+  font-size: 0.8rem;
+  color: #fff;
+  box-sizing: border-box;
+  caret-color: #fff;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  font-size: 0.8rem;
+  width: 100%;
+  background: transparent;
+  user-select: none;
+}
+
+/* == Controls At The Bottom == */
+
+.button-group {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transform: translate(-50%);
+
+  .group.size {
+    & > div {
+      display: flex;
+      justify-content: space-between;
+      width: var(--footer-width);
+      gap: 0.5rem;
+      max-width: calc(100dvw - 1rem);
+      & > div p {
+        margin: 0;
+        font-size: 0.8rem;
+        font-weight: 500;
+        user-select: none;
+        margin-bottom: 0.2rem;
+      }
+    }
+
+    & input {
+      width: 100%;
+      border-radius: 2px;
+      border: var(--border);
+      background: var(--dark);
+      padding: 0.3rem 0.6rem;
+
+      &::placeholder {
+        color: #ffffff0f;
+      }
+    }
+  }
+
+  .button {
+    padding: 0.5rem;
+    border-radius: 5px;
+    color: #000;
+    background: var(--accent);
+  }
+
+  .group.ppi,
+  .group.unit {
+    display: flex;
+    background: var(--dark);
+    color: #fff;
+    border: var(--border);
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    max-width: calc(100dvw - 1rem);
+    width: var(--footer-width);
+    user-select: none;
+
+    & > div:first-child {
+      padding-right: 0.5rem;
+      padding: 0.4rem 1.2rem;
+      border-right: var(--border);
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    & input {
+      text-align: center;
+      background: transparent;
+      border: none;
+      width: calc(100% - 1rem);
+      padding: 0.4rem;
+      height: 100%;
+    }
+
+    & button {
+      padding: 0.4rem 0.8rem 0.4rem 1.2rem;
+      width: 100%;
+      color: #fff;
+    }
+  }
+}
+
+/* == Dropcover == */
+
+.dropcover {
+  user-select: none;
+  display: none;
+  max-width: calc(100dvw - 1rem);
+  width: var(--footer-width);
+  bottom: 1rem;
+  left: 50%;
+  z-index: 2;
+  transform: translate(-50%);
+  position: absolute;
+  flex-direction: column;
+
+  .search {
+    border-radius: 2px;
+    border: var(--border);
+    background: var(--dark);
+    padding: 0.3rem 0.6rem;
+    width: var(--footer-width);
+    max-width: calc(100dvw - 1rem);
+
+    &::placeholder {
+      color: #ffffff46;
+    }
+  }
+
+  & div {
+    max-width: calc(100dvw - 1rem);
+    margin-top: 0.5rem !important;
+    height: 10rem;
+    flex-direction: column;
+    border-radius: 5px;
+    display: flex;
+    border: var(--border);
+    overflow-y: scroll;
+    background: var(--dark);
+    width: var(--footer-width);
+  }
+
+  & button {
+    color: #fff;
+    border: none;
+    border-bottom: var(--border);
+    padding: 0.5rem;
+    font-size: 0.8rem;
+    cursor: pointer;
+
+    &:hover {
+      background: #2121213a;
+    }
+  }
+}
+
+/* == Scroll Bar == */
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* == Media Queries For Height == */
+
+@media (max-height: 525px) {
+  .note {
+    display: none !important;
+  }
+  .group.size p {
+    text-align: center;
+  }
+}
+
+@media (max-height: 459px) {
+  h3 {
+    display: none;
+  }
+}
+
+@media (max-height: 425px) {
+  .donate {
+    display: none !important;
+  }
+}
+
+@media (max-height: 412px) {
+  .dropcover {
+    height: 7rem !important;
+  }
+}
+
+@media (max-height: 380px) {
+  .group.size,
+  .size.button {
+    display: none !important;
+  }
+}
+
+@media (max-height: 335px) {
+  .button-group,
+  .dropcover {
+    display: none !important;
+  }
+  p {
+    margin-top: 0 !important;
+  }
+  main {
+    height: 100dvh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (max-height: 230px) {
+  p,
+  h3 {
+    display: none;
+  }
+  h1 {
+    margin: 0 !important;
+  }
+}
+
+@media (max-height: 100px) {
+  h1,
+  h2 {
+    margin: 0 !important;
+    font-size: 1rem !important;
+    gap: 0.1rem !important;
+  }
+  main > div {
+    display: flex;
+    gap: 0.3rem;
+    flex-direction: row !important;
+  }
+}
+
+/* == Media Queries For Width == */
+
+@media (max-width: 267px) {
+  .note {
+    display: none !important;
+  }
+}
+
+@media (max-width: 190px) {
+  main p {
+    display: none;
+  }
+  h1 {
+    white-space: pre-line;
+  }
+}
+
+@media (max-width: 180px) {
+  .button-group,
+  .dropcover,
+  h3 {
+    display: none !important;
+  }
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100dvh;
+  }
+  h1,
+  h2 {
+    margin: 0 !important;
+    font-size: 1rem !important;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    gap: 0.1rem !important;
+  }
+  h2 {
+    padding-top: 0.5rem;
+  }
+}

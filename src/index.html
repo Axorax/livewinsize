@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="main.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <div>
+        <p>Your screen size is</p>
+        <h1>
+          <div
+            class="width"
+            contenteditable="true"
+            onblur="focusLost()"
+            onkeypress="onlyNumbers(event)"
+            onkeydown="resizeFromEvent(event, 'w', this)"
+          ></div>
+          <div>x</div>
+          <div
+            class="height"
+            contenteditable="true"
+            onblur="focusLost()"
+            onkeypress="onlyNumbers(event)"
+            onkeydown="resizeFromEvent(event, 'h', this)"
+          ></div>
+        </h1>
+        <h2>pixels</h2>
+        <h3>width x height</h3>
+        <div class="note">Press Enter to resize the window!</div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="button-group">
+        <div class="group size">
+          <div>
+            <div>
+              <p>Width</p>
+              <input
+                class="width"
+                type="text"
+                placeholder="Width"
+                onkeypress="onlyNumbers(event)"
+              />
+            </div>
+            <div>
+              <p>Height</p>
+              <input
+                class="height"
+                type="text"
+                placeholder="Height"
+                onkeypress="onlyNumbers(event)"
+              />
+            </div>
+          </div>
+        </div>
+
+        <button onclick="resizeFromInput()" class="size button">
+          set size
+        </button>
+
+        <div class="group ppi">
+          <div>DPI/PPI</div>
+          <div>
+            <input
+              oninput="setPPIFromInput(this)"
+              type="text"
+              value="96"
+              onkeypress="onlyNumbers(event)"
+            />
+          </div>
+        </div>
+
+        <div class="group unit">
+          <div>unit</div>
+          <button>pixels ▾</button>
+        </div>
+
+        <button class="donate button">Donate</button>
+      </div>
+
+      <div class="dropcover unit">
+        <input type="text" class="search" placeholder="🔎︎ search units" />
+        <div></div>
+      </div>
+    </footer>
+  </body>
+</html>
