@@ -1,0 +1,21 @@
+{
+	"name": "livewinsize",
+	"private": true,
+	"version": "1.0.0",
+	"type": "module",
+	"scripts": {
+		"pug": "pug --watch src -o compiled",
+		"less": "lessc src/style.less compiled/style.css",
+		"cs": "coffee --compile --watch --output compiled/ src/",
+		"tauri": "tauri dev",
+		"build": "tauri build",
+		"dev": "node watch.js",
+    "start": "node watch.js -once"
+	},
+	"devDependencies": {
+		"@tauri-apps/cli": "^1",
+		"coffeescript": "^2.7.0",
+		"less": "^4.2.0",
+		"pug-cli": "^1.0.0-alpha6"
+	}
+}

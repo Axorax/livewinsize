@@ -1,0 +1,41 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel="stylesheet", href="./style.css")
+    script(src="main.js", defer)
+  body
+    main
+      div
+        p Your screen size is
+        h1
+          div.width(contenteditable="true")
+          div x
+          div.height(contenteditable="true")
+        h2 pixels
+        h3 width x height
+        div.note Press Enter to resize the window!
+    footer
+      div.button-group
+        div.group.size
+          div
+            div
+              p Width
+              input.width(type="text", placeholder="Width")
+            div
+              p Height
+              input.height(type="text", placeholder="Height")
+        button.size.button set size
+        div.group.ppi
+          div DPI/PPI
+          div
+            input(type="text", value="96")
+        div.group.unit
+          div unit
+          button pixels ▾
+        button.donate.button Donate
+      div.dropcover.unit
+        input.search(type="text", placeholder="🔎︎ search units")
+        div.content
+        button.back Go back
